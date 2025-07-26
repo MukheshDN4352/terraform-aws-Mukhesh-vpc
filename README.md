@@ -11,9 +11,15 @@ This Terraform module creates an AWS VPC with a given CIDR block. It also create
 - Creates an Internet Gateway (IGW) for public subnets
 - Sets up route tables for public subnets
 
+---
+
 ## Usage
 
 ```hcl
+provider "aws" {
+  region = "ap-south-1"
+}
+
 module "vpc" {
   source = "./modules/vpc"
 
