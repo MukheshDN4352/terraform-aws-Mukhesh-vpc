@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Terraform module creates an AWS VPC with a given CIDR block. It also creates multiple subnets (public and private), and for public subnets, it sets up an Internet Gateway (IGW) and appropriate route tables.
+This Terraform module creates an AWS VPC with a given CIDR block. It also creates multiple subnets (public and private). For public subnets, it sets up an Internet Gateway (IGW) and appropriate route tables.
 
 ## Features
 
@@ -16,6 +16,7 @@ This Terraform module creates an AWS VPC with a given CIDR block. It also create
 ```hcl
 module "vpc" {
   source = "./modules/vpc"
+
   vpc_config = {
     cidr_block = "10.0.0.0/16"
     Name       = "your_vpc_name"
@@ -25,8 +26,7 @@ module "vpc" {
     public_subnet = {
       cidr_block = "10.0.0.0/24"
       az         = "ap-south-1a"
-      # to set the subnet as public , default is private
-      public     = true
+      public     = true # To set the subnet as public, default is private
     }
 
     private_subnet = {
