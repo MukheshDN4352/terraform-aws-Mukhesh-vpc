@@ -1,6 +1,7 @@
 #vpc 
 output "vpc_id" {
     value = aws_vpc.main.id
+     description = "Get the vpc ID"
   
 }
 
@@ -23,9 +24,11 @@ locals {
 }
 
 output "public_subnets" {
+   description = "Get the all the public subnets ID's"
     value = local.public_subnet_output
 }
 
 output "private_subnets" {
+  description = "Get the all the private subnets ID's"
     value = local.private_subnet_output
 }
